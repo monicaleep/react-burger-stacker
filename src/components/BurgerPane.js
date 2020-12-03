@@ -1,11 +1,12 @@
 import React from "react";
-import BurgerStack from './BurgerStack.js'
 
 const BurgerPane = ({bgi, clearBurger}) => {
-
+  const arrayOfBgi = bgi.map((burgerlayer,idx)=>{
+    return <div style={{backgroundColor:burgerlayer.color}}>{burgerlayer.name}</div>
+  })
   return(
     <>
-    <BurgerStack bgi={bgi}/>
+    {arrayOfBgi}
     <button onClick={clearBurger}>Clear</button>
     </>
 

@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 // Components imports
-import IngredientList from "./components/IngredientList";
+import Ingredient from "./components/Ingredient";
 import BurgerPane from "./components/BurgerPane";
 // CSS imports
 import "./css/App.css";
 
 const App = () => {
-  const [ingredients, setIngredients] = useState([
+  const ingredients = [
   { name: "Kaiser Bun", color: "saddlebrown" },
   { name: "Sesame Bun", color: "sandybrown" },
   { name: "Gluten Free Bun", color: "peru" },
@@ -19,7 +19,7 @@ const App = () => {
   { name: "Tomato", color: "tomato" },
   { name: "Bacon", color: "maroon" },
   { name: "Onion", color: "lightyellow" },
-]);
+];
 
   const [bgi, setBgi] = useState([])
 
@@ -29,10 +29,17 @@ const App = () => {
   const clearBurger = () => {
     setBgi([])
   }
+
+
   return (
     <div className="App">
-    <div>
-    <IngredientList ingredients={ingredients} addIngredient={addIngredient}/>
+    <div className="IngredientList">
+    {ingredients.map((ingredient,idx)=>(
+      <Ingredient
+      ingredient={ingredient}
+      key={idx}
+      addIngredient={addIngredient}/>
+    ))}
     </div>
       <div>
       <BurgerPane bgi={bgi} clearBurger={clearBurger} />
