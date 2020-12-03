@@ -6,6 +6,7 @@ import BurgerPane from "./components/BurgerPane";
 import "./css/App.css";
 
 const App = () => {
+  // since this doesn't change I'm not making it a state
   const ingredients = [
   { name: "Kaiser Bun", color: "saddlebrown" },
   { name: "Sesame Bun", color: "sandybrown" },
@@ -19,8 +20,11 @@ const App = () => {
   { name: "Tomato", color: "tomato" },
   { name: "Bacon", color: "maroon" },
   { name: "Onion", color: "lightyellow" },
+  // I am highly offended that cheese was not included. I have fixed it.
+  { name: 'Cheeeeeese', color: "yellow"}
 ];
 
+  // bgi === burger ingredients :)
   const [bgi, setBgi] = useState([])
 
   const addIngredient = (ingred) => {
@@ -33,18 +37,20 @@ const App = () => {
 
   return (
     <div className="App">
-    <div className="IngredientList">
-    {ingredients.map((ingredient,idx)=>(
-      <Ingredient
-      ingredient={ingredient}
-      key={idx}
-      addIngredient={addIngredient}/>
-    ))}
-    </div>
-      <div>
-      <BurgerPane bgi={bgi} clearBurger={clearBurger} />
+      <div className="Panel">
+      <h1>Build Your Burger</h1>
+      {ingredients.map((ingredient,idx)=>(
+        <Ingredient
+          ingredient={ingredient}
+          key={idx}
+          addIngredient={addIngredient}/>
+        ))}
       </div>
-
+      <div className="Panel">
+        <BurgerPane
+          bgi={bgi}
+          clearBurger={clearBurger} />
+      </div>
     </div>
   );
 };

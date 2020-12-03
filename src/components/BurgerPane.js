@@ -1,13 +1,26 @@
 import React from "react";
+import '../css/components/BurgerPane.css'
 
 const BurgerPane = ({bgi, clearBurger}) => {
-  const arrayOfBgi = bgi.map((burgerlayer,idx)=>{
-    return <div style={{backgroundColor:burgerlayer.color}}>{burgerlayer.name}</div>
-  })
-  return(
+
+  return (
     <>
-    {arrayOfBgi}
-    <button onClick={clearBurger}>Clear</button>
+    <div>
+
+      {bgi.map((burgerlayer,idx)=>(
+        <div
+          style={{backgroundColor:burgerlayer.color}}
+          className='BurgerIngredient'>
+          {burgerlayer.name}
+        </div>
+      )
+    )}
+
+    </div>
+    <div style={{backgroundColor:'grey'}}>Plate</div>
+    <button onClick={clearBurger}>
+      Clear
+    </button>
     </>
 
   )
