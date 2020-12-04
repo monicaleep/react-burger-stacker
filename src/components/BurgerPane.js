@@ -18,7 +18,7 @@ const BurgerPane = ({bgi, clearBurger}) => {
 
     </div>
     <div style={{backgroundColor:'grey'}}>Plate</div>
-    <button onClick={clearBurger}>
+    <button className="button--clear" onClick={clearBurger}>
       Clear
     </button>
     </>

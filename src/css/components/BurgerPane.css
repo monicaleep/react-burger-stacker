@@ -2,3 +2,7 @@
   border-radius: 5px;
   height: 25px;
 }
+.button--clear{
+  width: 40%;
+  margin: 20px auto;
+}
